@@ -1,0 +1,2 @@
+{:openai-token "<your-telegram-bot-token>"
+ :telegram-token "<your-openai-api-key>"}
