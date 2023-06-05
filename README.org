@@ -13,13 +13,11 @@
 - State "TODO"       from              [2023-05-30 Tue 18:10]
 :END:
 
-* AccessAuditBot
-
-** About
+* About
 
 AccessAuditBot is a Telegram bot that utilizes the ChatGPT API to analyze Linux server logs and detect unauthorized access attempts. The bot alerts the user via Telegram notifications when potential security breaches are detected. The application is being tested and run on a Raspberry Pi 4 running Raspbian.
 
-** Tools
+* Tools
 
 This project is built using the following tools and frameworks:
 
@@ -28,29 +26,31 @@ This project is built using the following tools and frameworks:
 - OpenAI-Clojure: A Clojure library for integrating with the OpenAI API, used to leverage the capabilities of ChatGPT.
 - Raspbian: The operating system running on the Raspberry Pi 4 where the program is tested.
 
-** Development
+* Development
 
-*** Prerequisites
+** Prerequisites
 
 To develop AccessAuditBot, you will need the following packages:
 
-**** On Linux (Debian-based)
+*** On Linux (Debian-based)
 
-You will need to install the Clojure compiler and Leiningen, a project management tool for Clojure. You can install them with the following commands:
+You can install the packages using *apt*:
 
 #+BEGIN_SRC shell
-sudo apt-get install clojure
+sudo apt update
+sudo apt install clojure
 #+END_SRC
 
-**** On macOS
+*** On macOS
 
-You can install Clojure and Leiningen using Homebrew:
+You can install the packages using *Homebrew*:
 
 #+BEGIN_SRC shell
+brew update
 brew install clojure
 #+END_SRC
 
-*** Quickstart
+** Quickstart
 
 To get started with the development, clone the repository and navigate into the directory:
 
@@ -59,19 +59,19 @@ git clone https://github.com/stindrago/access-audit-bot.git
 cd access-audit-bot
 #+END_SRC
 
-*** Setup
+** Setup
 
-You need to setup your Telegram Bot Token and OpenAI API Key in the environment variables. You can do this by creating a .env file in the root directory with the following lines:
+You need to setup your Telegram Bot Token and OpenAI API Key in the config file. You can do this by editing the *resources/config.edn* file in the root directory with the following lines:
 
 #+BEGIN_SRC shell
-TELEGRAM_BOT_TOKEN=<your-telegram-bot-token>
-OPENAI_API_KEY=<your-openai-api-key>
+{:openai-token "<your-telegram-bot-token>"
+ :telegram-token "<your-openai-api-key>"}
 #+END_SRC
 
-*** Deployment
+** Deployment
 
 Deployment instructions will be provided soon.
 
-** License
+* License
 
 AccessAuditBot is licensed under the [[./LICENSE][AGPL License]].
